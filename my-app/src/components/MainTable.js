@@ -1,4 +1,4 @@
-import styles from '../style/MainTableStyle.css'
+import '../style/MainTableStyle.css'
 
 function MainTable() {
   return (
