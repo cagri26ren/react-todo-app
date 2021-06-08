@@ -2,29 +2,24 @@ import '../style/MainTableStyle.css'
 import '../style/App.css'
 import '../style/HeaderStyle.css'
 import MainTableRow from './MainTableRow'
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 
 
 function MainTable() {
     const [data,setData] = useState([]);
     const [text,setText] = useState('');
+    const num = useMemo(()=> 180 + 40 * data.length, [data.length]);
 
-    const onDeleteClick = useCallback(n => {
+    const onDeleteClick = useCallback(event => {
         let array = data;
-
-        for( let i = 0; i < array.length; i++ ){
-            if( array[i]['name'] === n ){
-                array.splice(i,1);
-                i--;
-            }
-        }
+        array.splice(event.target.getAttribute('data-index'),1);
         setData([...array]);
-    });
-
+    }, [data]);
+    
     const handleSubmit = () =>{
         let arr = [...data];
-        for( let i = 0; i < arr.length; i++ ){
+        for( let i = 0; i < arr.length; i++){
             if(arr[i]['name'] === text ){
                 alert("You already have this task");
                 return;
@@ -33,10 +28,10 @@ function MainTable() {
         arr.push( {name:text,checked:false} );
         setData(arr);
         setText("");
-    }
+    };
 
     return (
-            <div id = "mainTableStyle" style ={{height: (180 + ( (40)*data.length ) ) +'px'}}>
+            <div id = "mainTableStyle" style ={{height: num +'px'}}>
                 <div id = "mainTableHeaderStyle">
                     <div id = "mainTableCategoryStyle">
                         <div>
@@ -51,8 +46,16 @@ function MainTable() {
                     </div>
                     <div id = "dividerStyle"></div>
                 </div>
-                {data.map(element => {
-                return( <MainTableRow key = {element.name} name = {element.name} checked = {element.checked} onDeleteClick = {() => onDeleteClick(element.name)} ></MainTableRow> )
+                {data.map((element,index) => {
+                    return(
+                        <MainTableRow 
+                            key={index}
+                            name={element.name}
+                            checked={element.checked}
+                            dataIndex={index}
+                            onDeleteClick={onDeleteClick}
+                        />
+                    )
                 })}
                 <div style = {{marginTop:'125px',marginLeft:'30%'}}>
                     <span>

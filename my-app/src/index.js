@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const eslintrc = require('../../.eslintrc.js');
+
+module.exports = eslintrc;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -16,7 +16,7 @@ function MainTableRow(props) {
                     onChange = {e => {setData( { name: data.name , checked: !data.checked } )}} ></input>
             </div>
             <div>
-                <button type="button" onClick={props.onDeleteClick} >Delete</button>
+                <button data-index = {props.dataIndex} type="button" onClick={props.onDeleteClick} >Delete</button>
             </div>
 
         </div>
