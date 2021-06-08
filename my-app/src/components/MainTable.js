@@ -36,14 +36,15 @@ function MainTable() {
         for( let i = 0; i < array.length; i++ ){
             if( array[i]['name'] === n ){
                 array.splice(i,1);
+                i--;
             }
         }
         todoData = null;
-        setData([...array.sort((a,b) => (a.name - b.name))]);
+        setData([...array]);
     });
 
     return (
-        <div id = "mainTableStyle">
+        <div id = "mainTableStyle" style ={{height: (180 + ( (40)*data.length ) ) +'px'}}>
             <div id = "mainTableHeaderStyle">
                 <div id = "mainTableCategoryStyle">
                     <div>
