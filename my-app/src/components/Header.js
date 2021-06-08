@@ -1,10 +1,11 @@
-import '../style/HeaderStyle.css'
+import '../style/Header.css';
+import React from 'react';
 
 function Header() {
   return (
-    <div id = "headerDivStyle">
-        <h1 id = "headerTextStyle">TODO List</h1>
-        <div id = "dividerStyle"></div>
+    <div id = "headerDiv">
+        <h1 id = "headerText">TODO List</h1>
+        <div id = "divider"></div>
     </div>
   );
 }

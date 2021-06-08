@@ -1,11 +1,11 @@
-import '../style/MainTableRowStyle.css'
+import '../style/MainTableRow.css'
 import {useState} from 'react';
 
 function MainTableRow(props) {
     const [data,setData] = useState(props);
 
     return (
-        <div id = "mainTableRowStyle">
+        <div class = "mainTableRow">
             <div>
                 {data.name}
             </div>

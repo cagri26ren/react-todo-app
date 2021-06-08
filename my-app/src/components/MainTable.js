@@ -1,39 +1,35 @@
-import '../style/MainTableStyle.css'
-import '../style/App.css'
-import '../style/HeaderStyle.css'
-import MainTableRow from './MainTableRow'
-import { useCallback, useMemo, useState } from 'react';
+import '../style/MainTable.css';
+import '../style/App.css';
+import '../style/Header.css';
+import { useCallback, useMemo, useState, React } from 'react';
+import MainTableRow from './MainTableRow';
+
 
 
 
 function MainTable() {
-    const [data,setData] = useState([]);
-    const [text,setText] = useState('');
-    const num = useMemo(()=> 180 + 40 * data.length, [data.length]);
+    const [data, setData] = useState([]);
+    const [text, setText] = useState('');
+    const num = useMemo(() => 180 + 40 * data.length, [data.length]);
+
 
     const onDeleteClick = useCallback(event => {
         let array = data;
         array.splice(event.target.getAttribute('data-index'),1);
         setData([...array]);
     }, [data]);
-    
+
     const handleSubmit = () =>{
-        let arr = [...data];
-        for( let i = 0; i < arr.length; i++){
-            if(arr[i]['name'] === text ){
-                alert("You already have this task");
-                return;
-            }
-        }
-        arr.push( {name:text,checked:false} );
+        const arr = [...data];
+        arr.push( { name: text, checked: false });
         setData(arr);
         setText("");
     };
 
     return (
-            <div id = "mainTableStyle" style ={{height: num +'px'}}>
-                <div id = "mainTableHeaderStyle">
-                    <div id = "mainTableCategoryStyle">
+      <div id="mainTable" style ={{height: num +'px'}}>
+        <div id="mainTableHeader">
+                    <div id = "mainTableCategory">
                         <div>
                             <h3>Name</h3>
                         </div>
@@ -44,9 +40,9 @@ function MainTable() {
                             <h3>Delete</h3>
                         </div>
                     </div>
-                    <div id = "dividerStyle"></div>
+                    <div id = "divider"></div>
                 </div>
-                {data.map((element,index) => {
+        {data.map((element,index) => {
                     return(
                         <MainTableRow 
                             key={index}

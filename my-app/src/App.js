@@ -1,12 +1,13 @@
 import './style/App.css';
-import MainTable from './components/MainTable.js'
-import Header from './components/Header.js'
+import React from 'react';
+import MainTable from './components/MainTable';
+import Header from './components/Header';
 
 function App() {
   return (
     <div>
-      <Header></Header>
-      <MainTable></MainTable>
+      <Header/>
+      <MainTable />
     </div>
   );
 }

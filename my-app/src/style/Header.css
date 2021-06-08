@@ -1,12 +1,12 @@
-#headerDivStyle{
+#headerDiv{
 
 }
 
-#headerTextStyle{
+#headerText{
     text-align: center;
 }
 
-#dividerStyle{
+#divider{
     background-color: black;
     height: 3px;
     width: 80%;
