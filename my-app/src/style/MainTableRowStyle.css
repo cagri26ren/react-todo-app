@@ -1,0 +1,13 @@
+#mainTableRowStyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 85%;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px
+}

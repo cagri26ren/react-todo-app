@@ -12,3 +12,18 @@
     background-color: whitesmoke;
     box-shadow: 1px 1px #888888;
 }
+
+#mainTableHeaderStyle{
+    border-radius: 20px;
+    width: 85%;
+    height: 60px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#mainTableCategoryStyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
