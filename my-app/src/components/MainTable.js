@@ -4,31 +4,11 @@ import '../style/HeaderStyle.css'
 import MainTableRow from './MainTableRow'
 import { useCallback, useState } from 'react';
 
-let todoData =[
-    {
-        name:'name1',
-        checked: true
-    },
-    {
-        name:'name2',
-        checked: true
-    },
-    {
-        name:'name3',
-        checked: true
-    },
-    {
-        name:'name4',
-        checked: true
-    },
-    {
-        name:'name5',
-        checked: true
-    }
-];
+
 
 function MainTable() {
-    const [data,setData] = useState(todoData);
+    const [data,setData] = useState([]);
+    const [text,setText] = useState('');
 
     const onDeleteClick = useCallback(n => {
         let array = data;
@@ -39,30 +19,52 @@ function MainTable() {
                 i--;
             }
         }
-        todoData = null;
         setData([...array]);
     });
 
+    const handleSubmit = () =>{
+        let arr = [...data];
+        for( let i = 0; i < arr.length; i++ ){
+            if(arr[i]['name'] === text ){
+                alert("You already have this task");
+                return;
+            }
+        }
+        arr.push( {name:text,checked:false} );
+        setData(arr);
+        setText("");
+    }
+
     return (
-        <div id = "mainTableStyle" style ={{height: (180 + ( (40)*data.length ) ) +'px'}}>
-            <div id = "mainTableHeaderStyle">
-                <div id = "mainTableCategoryStyle">
-                    <div>
-                        <h3>Name</h3>
+            <div id = "mainTableStyle" style ={{height: (180 + ( (40)*data.length ) ) +'px'}}>
+                <div id = "mainTableHeaderStyle">
+                    <div id = "mainTableCategoryStyle">
+                        <div>
+                            <h3>Name</h3>
+                        </div>
+                        <div>
+                            <h3>Finished</h3>
+                        </div>
+                        <div>
+                            <h3>Delete</h3>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Finished</h3>
-                    </div>
-                    <div>
-                        <h3>Delete</h3>
-                    </div>
+                    <div id = "dividerStyle"></div>
                 </div>
-                <div id = "dividerStyle"></div>
+                {data.map(element => {
+                return( <MainTableRow key = {element.name} name = {element.name} checked = {element.checked} onDeleteClick = {() => onDeleteClick(element.name)} ></MainTableRow> )
+                })}
+                <div style = {{marginTop:'125px',marginLeft:'30%'}}>
+                    <span>
+                        <label>
+                            Task Name:
+                        </label>
+                            <input style={{marginRight:'10px'}} type="text" value={text} onChange = {(t) => setText(t.target.value)}/>
+                        <button onClick={handleSubmit}  type="button">Create New Task</button>
+
+                    </span>
+                </div>
             </div>
-            {data.map(element => {
-            return( <MainTableRow key = {element.name} name = {element.name} checked = {element.checked} onDeleteClick = {() => onDeleteClick(element.name)} ></MainTableRow> )
-            })}
-        </div>
     );
 }
 

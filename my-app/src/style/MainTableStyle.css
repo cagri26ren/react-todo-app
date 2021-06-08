@@ -10,7 +10,6 @@
     border-radius: 50px;
     background-color: whitesmoke;
     box-shadow: 1px 1px #888888;
-    display: inline-block;
 }
 
 #mainTableHeaderStyle{
@@ -26,4 +25,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#addButtonStyle{
+    margin-top: 80px;
 }
