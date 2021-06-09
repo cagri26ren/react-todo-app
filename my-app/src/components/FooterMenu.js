@@ -1,16 +1,14 @@
 import { useState } from "react";
 
 function FooterMenu(props) {
-    let i = 0;
     const[text,setText] = useState('');
 
     const handleSubmit = () =>{
+        props.handleCreate(text);
     };  
 
     const handleKeyDown = (e) =>{
         if( e.keyCode === 13 ){
-            i++;
-            console.log(i);
             handleSubmit();
         }
     }

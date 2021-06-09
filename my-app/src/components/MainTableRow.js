@@ -5,7 +5,7 @@ function MainTableRow(props) {
     const [data,setData] = useState(props);
 
     return (
-        <div class = "mainTableRow">
+        <div className="mainTableRow">
             <div>
                 {data.name}
             </div>

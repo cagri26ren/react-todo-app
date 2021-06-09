@@ -7,16 +7,13 @@ import MainTableRow from './MainTableRow';
 
 
 
-function MainTable() {
-    const [data, setData] = useState([]);
-    const num = useMemo(() => 180 + 40 * data.length, [data.length]);
+function MainTable(props) {
+    const num = useMemo(() => 180 + 40 * props.data.length, [props.data.length]);
 
 
     const onDeleteClick = useCallback(event => {
-        let array = data;
-        array.splice(event.target.getAttribute('data-index'),1);
-        setData([...array]);
-    }, [data]);
+        props.handleDelete(event.target.getAttribute('data-index'));
+    }, [props]);
 
     return (
       <div id="mainTable" style ={{height: num +'px'}}>
@@ -34,7 +31,7 @@ function MainTable() {
                     </div>
                     <div id = "divider"></div>
                 </div>
-        {data.map((element,index) => {
+        {props.data.map((element,index) => {
                     return(
                         <MainTableRow 
                             key={index}
