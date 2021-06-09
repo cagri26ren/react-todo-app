@@ -2,18 +2,18 @@ import '../style/MainTableRow.css'
 import {useState} from 'react';
 
 function MainTableRow(props) {
-    const [data,setData] = useState(props);
 
     return (
         <div className="mainTableRow">
             <div>
-                {data.name}
+                {props.name}
             </div>
             <div>
                 <input 
+                    data-index = {props.dataIndex}
                     type="checkbox" 
-                    checked = {data.checked} 
-                    onChange = {e => {setData( { name: data.name , checked: !data.checked } )}} ></input>
+                    checked = {props.checked} 
+                    onChange = {props.onCheckChange} ></input>
             </div>
             <div>
                 <button data-index = {props.dataIndex} type="button" onClick={props.onDeleteClick} >Delete</button>

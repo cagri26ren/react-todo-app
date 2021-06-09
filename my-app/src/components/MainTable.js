@@ -15,6 +15,10 @@ function MainTable(props) {
         props.handleDelete(event.target.getAttribute('data-index'));
     }, [props]);
 
+    const onCheckChange = useCallback(event => {
+        props.handleCheckChange(event.target.getAttribute('data-index'));
+    }, [props]);
+
     return (
       <div id="mainTable" style ={{height: num +'px'}}>
         <div id="mainTableHeader">
@@ -39,6 +43,7 @@ function MainTable(props) {
                             checked={element.checked}
                             dataIndex={index}
                             onDeleteClick={onDeleteClick}
+                            onCheckChange={onCheckChange}
                         />
                     )
                 })}

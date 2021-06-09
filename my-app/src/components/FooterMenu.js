@@ -25,7 +25,7 @@ function FooterMenu(props) {
     });
 
     return (
-        <div style = {{marginTop:'125px',marginLeft:'30%'}}>
+        <div style = {{marginTop:'125px',marginLeft:'40%'}}>
             <span>
                 <label>
                     Task Name:

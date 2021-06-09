@@ -14,16 +14,27 @@ function App() {
   });
 
   const handleDelete = useCallback( index =>{
+  
+    let arr = [...data];
+    console.log(data);
+    arr.splice(index,1);
+    setData([...arr]);
+  },[data]);
+
+  const handleCheckChange = useCallback( index =>{
     console.log(index);
     let arr = [...data];
-    arr.splice(index,1);
+    const prevName = arr[index]['name'];
+    const newChecked = !arr[index]['checked'];
+    arr[index] = {name:prevName, checked:newChecked}
+    console.log(arr);
     setData(arr);
   },[data]);
 
   return (
     <div>
       <Header />
-      <MainTable handleDelete={handleDelete} data={data}/>
+      <MainTable handleDelete={handleDelete} handleCheckChange={handleCheckChange} data={data}/>
       <FooterMenu handleCreate={handleCreate} />
     </div>
   );
