@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 function FooterMenu(props) {
     const[text,setText] = useState('');
 
+    let textInput = null;
+
     const handleSubmit = () =>{
         props.handleCreate(text);
     };  
 
     useEffect(() => {
+        textInput.focus();
         const onKeyDown = (e) => {
             if (e.keyCode === 13) {
                 props.handleCreate(text);
@@ -27,7 +30,7 @@ function FooterMenu(props) {
                 <label>
                     Task Name:
                 </label>
-                <input style={{marginRight:'10px'}} type="text" value={text} onChange = {(t) => setText(t.target.value)}/>
+                <input style={{marginRight:'10px'}} type="text" value={text} onChange = {(t) => setText(t.target.value)} ref={(text)=>{textInput=text}}/>
                 <button onClick={handleSubmit}  type="button">Create New Task</button>
             </span>
         </div>
