@@ -7,13 +7,14 @@ import FooterMenu from './components/FooterMenu';
 function App() {
   const [data,setData] = useState([]);
 
-  const handleCreate = (text) => {
+  const handleCreate = useCallback(text => {
     let arr = [...data];
     arr.push({name:text, checked: false});
     setData(arr);
-  }
+  });
 
   const handleDelete = useCallback( index =>{
+    console.log(index);
     let arr = [...data];
     arr.splice(index,1);
     setData(arr);

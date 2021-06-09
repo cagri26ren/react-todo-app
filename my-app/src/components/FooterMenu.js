@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function FooterMenu(props) {
     const[text,setText] = useState('');
@@ -7,14 +7,19 @@ function FooterMenu(props) {
         props.handleCreate(text);
     };  
 
-    const handleKeyDown = (e) =>{
-        if( e.keyCode === 13 ){
-            handleSubmit();
+    useEffect(() => {
+        const onKeyDown = (e) => {
+            if (e.keyCode === 13) {
+                props.handleCreate(text);
+            }
         }
-    }
 
-    document.addEventListener("keydown",handleKeyDown);
+        document.addEventListener('keydown', onKeyDown);
 
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+        }
+    });
 
     return (
         <div style = {{marginTop:'125px',marginLeft:'30%'}}>
