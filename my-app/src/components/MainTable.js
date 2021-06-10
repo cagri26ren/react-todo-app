@@ -1,7 +1,7 @@
 import '../style/MainTable.css';
 import '../style/App.css';
 import '../style/Header.css';
-import { useCallback, useMemo, useState, React } from 'react';
+import { useCallback, useMemo, React } from 'react';
 import MainTableRow from './MainTableRow';
 
 

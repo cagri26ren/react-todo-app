@@ -1,8 +1,4 @@
 .mainTableRow{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     background-color: white;
     border-radius: 20px;
     width: 85%;
