@@ -19,6 +19,20 @@ function MainTable(props) {
         props.handleCheckChange(event.target.getAttribute('data-index'));
     }, [props]);
 
+    const onEditChange = useCallback(event => {
+        props.handleEditChange(event);
+    }, [props]);
+
+    const handleRowClicked = useCallback(index => {
+        props.handleRowClicked(index);
+    });
+
+    const handleExitEditMode = useCallback(index => {
+        props.handleExitEditMode(index);
+    });
+
+    
+
     return (
       <div id="mainTable" style ={{height: num +'px'}}>
         <div id="mainTableHeader">
@@ -44,6 +58,9 @@ function MainTable(props) {
                             dataIndex={index}
                             onDeleteClick={onDeleteClick}
                             onCheckChange={onCheckChange}
+                            onEditChange={onEditChange}
+                            handleRowClicked={handleRowClicked}
+                            handleExitEditMode={handleExitEditMode}
                         />
                     )
                 })}

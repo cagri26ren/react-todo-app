@@ -7,3 +7,13 @@
     margin-top: 10px;
     margin-bottom: 10px
 }
+
+.nameText{
+    margin-left:130px; 
+    position:absolute;
+}
+
+.nameTextField{
+    margin-left:130px; 
+    position:absolute;
+}

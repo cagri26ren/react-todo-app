@@ -10,7 +10,10 @@ function FooterMenu(props) {
     };  
 
     useEffect(() => {
-        textInput.focus();
+        console.log(props.clickedArr);
+        if( props.clickedArr.length === 0){
+            textInput.focus();
+        }
         const onKeyDown = (e) => {
             if (e.keyCode === 13) {
                 props.handleCreate(text);
@@ -22,7 +25,7 @@ function FooterMenu(props) {
         return () => {
             document.removeEventListener('keydown', onKeyDown);
         }
-    });
+    },[props,text]);
 
     return (
         <div style = {{marginTop:'125px',marginLeft:'40%'}}>
