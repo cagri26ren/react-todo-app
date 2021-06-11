@@ -15,7 +15,7 @@ const FooterMenu = ({
   };
 
   useEffect(() => {
-    if (clickedArr.length === 0) {
+    if (clickedArr?.length === 0) {
       textInput.focus();
     }
     const onKeyDown = (e) => {

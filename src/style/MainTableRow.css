@@ -1,32 +1,32 @@
-.mainTableRow{
+.MainTableRow{
     background-color: white;
     border-radius: 20px;
-    width: 85%;
     height: 40px;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    width: 85%;
 }
 
-.nameText_display_none{
-    margin-left:130px; 
-    position:absolute;
-    display: none;
-}
-
-.nameText_display_inline{
+.NameText_display_inline{
+    display: inline;
     margin-left:130px; 
     position: absolute;
-    display: inline;
 }
 
-.rowButton{
+.NameText_display_none{
+    display: none;
+    margin-left:130px; 
+    position:absolute;
+}
+
+.RowButton{
     display: inline;
     margin-left: 700px;
     position: absolute;
 }
 
-.rowCheckbox{
+.RowCheckbox{
     display: inline;
     margin-left: 420px; 
     position: absolute;

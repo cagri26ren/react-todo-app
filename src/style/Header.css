@@ -1,14 +1,14 @@
+#divider{
+    background-color: black;
+    height: 3px;
+    margin: auto;
+    width: 80%;
+}
+
 #headerDiv{
 
 }
 
 #headerText{
     text-align: center;
-}
-
-#divider{
-    background-color: black;
-    height: 3px;
-    width: 80%;
-    margin: auto;
 }

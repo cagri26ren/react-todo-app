@@ -1,3 +1,8 @@
+#addButton{
+    margin-top: 80px;
+}
+
+
 #mainTable{
     margin: auto;
     margin-top: 40px;
@@ -8,21 +13,17 @@
     box-shadow: 1px 1px #888888;
 }
 
-#mainTableHeader{
-    border-radius: 20px;
-    width: 85%;
-    height: 60px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
 #mainTableCategory{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#addButton{
-    margin-top: 80px;
+#mainTableHeader{
+    border-radius: 20px;
+    height: 60px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 85%;
 }

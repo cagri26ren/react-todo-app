@@ -13,7 +13,7 @@ const MainTable = ({
   handleExitEditMode,
   handleRowClicked,
 }) => {
-  const num = useMemo(() => 180 + 40 * data.length, [data.length]);
+  const mainTableSize = useMemo(() => 180 + 40 * data?.length, [data?.length]);
   const onDeleteClick = useCallback((event) => {
     handleDelete(event.target.getAttribute('data-index'));
   }, [data]);
@@ -35,7 +35,7 @@ const MainTable = ({
   }, [data]);
 
   return (
-    <div id="mainTable" style={{ height: `${num}px` }}>
+    <div id="mainTable" style={{ height: `${mainTableSize}px` }}>
       <div id="mainTableHeader">
         <div id="mainTableCategory">
           <div>
@@ -52,10 +52,10 @@ const MainTable = ({
       </div>
       {data.map((element) => (
         <MainTableRow
-          key={element.id}
-          name={element.name}
-          checked={element.checked}
-          dataIndex={element.id}
+          key={element?.id}
+          name={element?.name}
+          checked={element?.checked}
+          dataIndex={element?.id}
           onDeleteClick={onDeleteClick}
           onCheckChange={onCheckChange}
           onEditChange={onEditChange}
