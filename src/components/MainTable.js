@@ -36,9 +36,9 @@ const MainTable = ({
   }, [handleExitEditMode]);
 
   return (
-    <div id="mainTable" style={{ height: `${mainTableSize}px` }}>
-      <div id="mainTableHeader">
-        <div id="mainTableCategory">
+    <div className="mainTable" style={{ height: `${mainTableSize}px` }}>
+      <div className="mainTableHeader">
+        <div className="mainTableCategory">
           <div>
             <h3>Name</h3>
           </div>
@@ -49,7 +49,7 @@ const MainTable = ({
             <h3>Delete</h3>
           </div>
         </div>
-        <div id="divider" />
+        <div className="divider" />
       </div>
       {data.map((element) => (
         <MainTableRow

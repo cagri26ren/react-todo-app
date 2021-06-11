@@ -12,6 +12,7 @@ const FooterMenu = ({
 
   const handleSubmit = () => {
     handleCreate(text);
+    setText('');
   };
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const FooterMenu = ({
     const onKeyDown = (e) => {
       if (e.keyCode === 13) {
         handleCreate(text);
+        setText('');
       }
     };
 
@@ -32,11 +34,11 @@ const FooterMenu = ({
   }, [clickedArr, handleCreate, text, textInput]);
 
   return (
-    <div id="footerMenu">
+    <div className="footerMenu">
       <span>
         <label htmlFor="textInput">
           Task Name:
-          <input id="textInput" name="textInput" type="text" value={text} onChange={(t) => setText(t.target.value)} ref={(t) => { textInput = t; }} />
+          <input className="textInput" name="textInput" type="text" value={text} onChange={(t) => setText(t.target.value)} ref={(t) => { textInput = t; }} />
         </label>
         <button onClick={handleSubmit} type="button">Create New Task</button>
       </span>

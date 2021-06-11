@@ -1,9 +1,9 @@
-#addButton{
+.addButton{
     margin-top: 80px;
 }
 
 
-#mainTable{
+.mainTable{
     margin: auto;
     margin-top: 40px;
     width: 60%;
@@ -13,13 +13,13 @@
     box-shadow: 1px 1px #888888;
 }
 
-#mainTableCategory{
+.mainTableCategory{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-#mainTableHeader{
+.mainTableHeader{
     border-radius: 20px;
     height: 60px;
     margin: auto;
