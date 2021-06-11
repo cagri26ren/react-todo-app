@@ -1,4 +1,5 @@
 import { useState, useEffect, React } from 'react';
+import '../style/FooterMenu.css';
 import PropTypes from 'prop-types';
 
 const FooterMenu = ({
@@ -31,11 +32,11 @@ const FooterMenu = ({
   }, [clickedArr, handleCreate, text]);
 
   return (
-    <div style={{ marginTop: '125px', marginLeft: '40%' }}>
+    <div id="footerMenu">
       <span>
         <label htmlFor="textInput">
           Task Name:
-          <input name="textInput" style={{ marginRight: '10px' }} type="text" value={text} onChange={(t) => setText(t.target.value)} ref={(t) => { textInput = t; }} />
+          <input id="textInput" name="textInput" type="text" value={text} onChange={(t) => setText(t.target.value)} ref={(t) => { textInput = t; }} />
         </label>
         <button onClick={handleSubmit} type="button">Create New Task</button>
       </span>
