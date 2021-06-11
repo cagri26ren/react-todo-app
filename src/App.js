@@ -10,7 +10,7 @@ function App() {
 
   const handleCreate = useCallback((text) => {
     const arr = [...data];
-    arr.push({ name: text, checked: false });
+    arr.push({ id: data[data.length - 1] + 1, name: text, checked: false });
     setData(arr);
   });
 
@@ -23,8 +23,9 @@ function App() {
   const handleCheckChange = useCallback((index) => {
     const arr = [...data];
     const prevName = arr[index].name;
+    const prevId = arr[index].id;
     const newChecked = !arr[index].checked;
-    arr[index] = {name: prevName, checked: newChecked}
+    arr[index] = { id: prevId, name: prevName, checked: newChecked}
     setData(arr);
   }, [data]);
 
