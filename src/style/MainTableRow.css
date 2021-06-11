@@ -8,12 +8,26 @@
     margin-bottom: 10px
 }
 
-.nameText{
+.nameText_display_none{
     margin-left:130px; 
     position:absolute;
+    display: none;
 }
 
-.nameTextField{
+.nameText_display_inline{
     margin-left:130px; 
-    position:absolute;
+    position: absolute;
+    display: inline;
+}
+
+.rowButton{
+    display: inline;
+    margin-left: 700px;
+    position: absolute;
+}
+
+.rowCheckbox{
+    display: inline;
+    margin-left: 420px; 
+    position: absolute;
 }

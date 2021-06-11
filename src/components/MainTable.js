@@ -50,12 +50,12 @@ const MainTable = ({
         </div>
         <div id="divider" />
       </div>
-      {data.map((element, index) => (
+      {data.map((element) => (
         <MainTableRow
           key={element.id}
           name={element.name}
           checked={element.checked}
-          dataIndex={index}
+          dataIndex={element.id}
           onDeleteClick={onDeleteClick}
           onCheckChange={onCheckChange}
           onEditChange={onEditChange}

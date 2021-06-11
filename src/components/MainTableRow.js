@@ -16,7 +16,7 @@ const MainTableRow = ({
 }) => {
   const [clicked, setClicked] = useState(false);
 
-  const handleClick = () =>{
+  const handleClick = () => {
     setClicked(true);
     handleRowClicked(dataIndex);
   };
@@ -32,10 +32,10 @@ const MainTableRow = ({
 
   return (
     <div className="mainTableRow">
-      <div className="nameText" style={(clicked) ? {display: 'none'} : {display: 'inline'}} onClick={() => handleClick()}>
+      <div className={(clicked) ? 'nameText_display_none' : 'nameText_display_inline'} onClick={() => handleClick()}>
         {name}
       </div>
-      <div className="nameTextField" style={(clicked) ? { display: 'inline' } : { display: 'none' }} onClick={() => handleClick()}>
+      <div className={(clicked) ? 'nameText_display_inline' : 'nameText_display_none'} onClick={() => handleClick()}>
         <input
           data-index={dataIndex}
           type="text"
@@ -43,7 +43,7 @@ const MainTableRow = ({
           onChange={onEditChange}
         />
       </div>
-      <div style={{ display: 'inline', marginLeft: '420px', position: 'absolute' }}>
+      <div className="rowCheckbox">
         <input
           data-index={dataIndex}
           type="checkbox"
@@ -51,7 +51,7 @@ const MainTableRow = ({
           onChange={onCheckChange}
         />
       </div>
-      <div style={{display: 'inline', marginLeft: '700px', position: 'absolute'}}>
+      <div className="rowButton">
         <button data-index={dataIndex} type="button" onClick={handleButtonClick}>{(clicked) ? 'Exit Edit Mode' : 'Delete'}</button>
       </div>
     </div>

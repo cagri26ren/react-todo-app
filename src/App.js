@@ -10,39 +10,56 @@ function App() {
 
   const handleCreate = useCallback((text) => {
     const arr = [...data];
-    arr.push({ id: data[data.length - 1] + 1, name: text, checked: false });
+    const newId = (data.length === 0) ? 0 : data[data.length - 1].id + 1;
+    arr.push({ id: newId, name: text, checked: false });
     setData(arr);
-  });
+  }, [data]);
 
   const handleDelete = useCallback((index) => {
     const arr = [...data];
-    arr.splice(index, 1);
-    setData([...arr]);
+    for (let i = 0; i < arr.length; i += 1) {
+      // eslint-disable-next-line eqeqeq
+      if (arr[i].id == index) {
+        arr.splice(i, 1);
+        setData(arr);
+      }
+    }
   }, [data]);
 
   const handleCheckChange = useCallback((index) => {
     const arr = [...data];
-    const prevName = arr[index].name;
-    const prevId = arr[index].id;
-    const newChecked = !arr[index].checked;
-    arr[index] = { id: prevId, name: prevName, checked: newChecked}
-    setData(arr);
+    for (let i = 0; i < arr.length; i += 1) {
+      // eslint-disable-next-line eqeqeq
+      if (arr[i].id == index) {
+        const prevName = arr[i].name;
+        const prevId = arr[i].id;
+        const newChecked = !arr[i].checked;
+        arr[i] = { id: prevId, name: prevName, checked: newChecked };
+        setData(arr);
+      }
+    }
   }, [data]);
 
   const handleEditChange = useCallback((event) => {
     const index = event.target.getAttribute('data-index');
     const arr = [...data];
-    const newName = event.target.value;
-    arr[index] = { name: newName, checked: false };
-    setData(arr);
+    for (let i = 0; i < arr.length; i += 1) {
+      // eslint-disable-next-line eqeqeq
+      if (arr[i].id == index) {
+        const prevId = data[i].id;
+        const newName = event.target.value;
+        arr[i] = { id: prevId, name: newName, checked: false };
+        setData(arr);
+      }
+    }
   }, [data]);
 
   const handleRowClicked = useCallback((clickedIndex) => {
     const map = [...clickedArr];
     let found = false;
-
     for (let i = 0; i < map.length; i += 1) {
-      if (map[i] === clickedIndex) {
+      // eslint-disable-next-line eqeqeq
+      if (map[i] == clickedIndex) {
         found = true;
       }
     }
@@ -51,26 +68,27 @@ function App() {
       map.push(clickedIndex);
       setClickedArr(map);
     }
-  });
+  }, [clickedArr]);
 
-  const handleExitEditMode = useCallback((clickedIndex) =>{
+  const handleExitEditMode = useCallback((clickedIndex) => {
     const map = [...clickedArr];
     for (let i = 0; i < map.length; i += 1) {
-      if (map[i] === clickedIndex) {
+      // eslint-disable-next-line eqeqeq
+      if (map[i] == clickedIndex) {
         map.splice(i, 1);
         setClickedArr(map);
       }
     }
-  });
+  }, [clickedArr]);
 
   return (
     <div>
       <Header />
-      <MainTable 
-        handleDelete={handleDelete} 
-        handleCheckChange={handleCheckChange} 
-        handleEditChange={handleEditChange} 
-        data={data} 
+      <MainTable
+        handleDelete={handleDelete}
+        handleCheckChange={handleCheckChange}
+        handleEditChange={handleEditChange}
+        data={data}
         handleRowClicked={handleRowClicked}
         handleExitEditMode={handleExitEditMode}
       />
