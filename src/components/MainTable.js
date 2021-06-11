@@ -69,6 +69,7 @@ const MainTable = ({
 
 MainTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
     checked: PropTypes.checked,
   })).isRequired,
