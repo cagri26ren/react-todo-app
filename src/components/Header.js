@@ -3,9 +3,9 @@ import React from 'react';
 
 function Header() {
   return (
-    <div id = "headerDiv">
-        <h1 id = "headerText">TODO List</h1>
-        <div id = "divider"></div>
+    <div id="headerDiv">
+      <h1 id="headerText">TODO List</h1>
+      <div id="divider" />
     </div>
   );
 }
