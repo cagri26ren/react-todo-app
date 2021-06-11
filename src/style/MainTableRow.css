@@ -1,4 +1,4 @@
-.MainTableRow{
+.mainTableRow{
     background-color: white;
     border-radius: 20px;
     height: 40px;
@@ -8,25 +8,25 @@
     width: 85%;
 }
 
-.NameText_display_inline{
+.nameTextDisplayInline{
     display: inline;
     margin-left:130px; 
     position: absolute;
 }
 
-.NameText_display_none{
+.nameTextDisplayNone{
     display: none;
     margin-left:130px; 
     position:absolute;
 }
 
-.RowButton{
+.rowButton{
     display: inline;
     margin-left: 700px;
     position: absolute;
 }
 
-.RowCheckbox{
+.rowCheckbox{
     display: inline;
     margin-left: 420px; 
     position: absolute;
