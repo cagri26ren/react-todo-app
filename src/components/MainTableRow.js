@@ -31,11 +31,11 @@ const MainTableRow = ({
   };
 
   return (
-    <div className="mainTableRow">
-      <div className={(clicked) ? 'nameText_display_none' : 'nameText_display_inline'} onClick={() => handleClick()}>
+    <div className="MainTableRow">
+      <div className={(clicked) ? 'NameText_display_none' : 'NameText_display_inline'} onClick={() => handleClick()}>
         {name}
       </div>
-      <div className={(clicked) ? 'nameText_display_inline' : 'nameText_display_none'} onClick={() => handleClick()}>
+      <div className={(clicked) ? 'NameText_display_inline' : 'NameText_display_none'} onClick={() => handleClick()}>
         <input
           data-index={dataIndex}
           type="text"
@@ -43,7 +43,7 @@ const MainTableRow = ({
           onChange={onEditChange}
         />
       </div>
-      <div className="rowCheckbox">
+      <div className="RowCheckbox">
         <input
           data-index={dataIndex}
           type="checkbox"
@@ -51,7 +51,7 @@ const MainTableRow = ({
           onChange={onCheckChange}
         />
       </div>
-      <div className="rowButton">
+      <div className="RowButton">
         <button data-index={dataIndex} type="button" onClick={handleButtonClick}>{(clicked) ? 'Exit Edit Mode' : 'Delete'}</button>
       </div>
     </div>

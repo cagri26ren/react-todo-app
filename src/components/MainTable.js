@@ -14,25 +14,26 @@ const MainTable = ({
   handleRowClicked,
 }) => {
   const mainTableSize = useMemo(() => 180 + 40 * data?.length, [data?.length]);
+
   const onDeleteClick = useCallback((event) => {
     handleDelete(event.target.getAttribute('data-index'));
-  }, [data]);
+  }, [handleDelete]);
 
   const onCheckChange = useCallback((event) => {
     handleCheckChange(event.target.getAttribute('data-index'));
-  }, [data]);
+  }, [handleCheckChange]);
 
   const onEditChange = useCallback((event) => {
     handleEditChange(event);
-  }, [data]);
+  }, [handleEditChange]);
 
   const onRowClick = useCallback((index) => {
     handleRowClicked(index);
-  }, [data]);
+  }, [handleRowClicked]);
 
   const onClickExitEditMode = useCallback((index) => {
     handleExitEditMode(index);
-  }, [data]);
+  }, [handleExitEditMode]);
 
   return (
     <div id="mainTable" style={{ height: `${mainTableSize}px` }}>

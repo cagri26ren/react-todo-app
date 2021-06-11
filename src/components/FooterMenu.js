@@ -29,7 +29,7 @@ const FooterMenu = ({
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [clickedArr, handleCreate, text]);
+  }, [clickedArr, handleCreate, text, textInput]);
 
   return (
     <div id="footerMenu">
