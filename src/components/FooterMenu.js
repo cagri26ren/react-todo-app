@@ -1,17 +1,18 @@
 import { useState, useEffect, React } from 'react';
 import '../style/FooterMenu.css';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { getClickedArr } from '../selectors';
+import { addTODO } from '../actions/todoActions';
 
-const FooterMenu = ({
-  handleCreate,
-  clickedArr,
-}) => {
+const FooterMenu = () => {
   const [text, setText] = useState('');
+  const dispatch = useDispatch();
+  const clickedArr = getClickedArr();
 
   let textInput = null;
 
   const handleSubmit = () => {
-    handleCreate(text);
+    dispatch(addTODO(text));
     setText('');
   };
 
@@ -21,7 +22,7 @@ const FooterMenu = ({
     }
     const onKeyDown = (e) => {
       if (e.keyCode === 13) {
-        handleCreate(text);
+        dispatch(addTODO(text));
         setText('');
       }
     };
@@ -31,7 +32,7 @@ const FooterMenu = ({
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [clickedArr, handleCreate, text, textInput]);
+  }, [clickedArr, dispatch, text, textInput]);
 
   return (
     <div className="footerMenu">
@@ -44,11 +45,6 @@ const FooterMenu = ({
       </span>
     </div>
   );
-};
-
-FooterMenu.propTypes = {
-  handleCreate: PropTypes.func.isRequired,
-  clickedArr: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default FooterMenu;
