@@ -1,13 +1,13 @@
 import { useState, useEffect, React } from 'react';
 import '../style/FooterMenu.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getClickedArr } from '../selectors';
 import { addTODO } from '../actions/todoActions';
 
 const FooterMenu = () => {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
-  const clickedArr = getClickedArr();
+  const clickedArr = useSelector(getClickedArr);
 
   let textInput = null;
 

@@ -3,8 +3,9 @@ const todoReducer = (state = [], action) => {
     case 'TODO_ADD':
       return [...state,
         {
-          id: state[state.length - 1].id,
-          name: action.payload?.name,
+          // eslint-disable-next-line eqeqeq
+          id: (state.length != 0) ? state[state.length - 1].id + 1 : 0,
+          name: action.payload,
           checked: false,
         },
       ];
@@ -12,7 +13,7 @@ const todoReducer = (state = [], action) => {
     case 'TODO_CHECK':
       return state.map((todo) => {
         // eslint-disable-next-line eqeqeq
-        if (todo.id != action.payload?.index) {
+        if (todo.id != action.payload) {
           return todo;
         }
 
@@ -24,8 +25,10 @@ const todoReducer = (state = [], action) => {
     case 'TODO_DELETE':
       for (let i = 0; i < state.length; i += 1) {
         // eslint-disable-next-line eqeqeq
-        if (state[i].id == action.payload?.index) {
-          return state.splice(i, 1);
+        if (state[i].id == action.payload) {
+          const arr = [...state];
+          arr.splice(i, 1);
+          return arr;
         }
       }
       return state;
@@ -33,12 +36,12 @@ const todoReducer = (state = [], action) => {
     case 'TODO_EDIT':
       return state.map((todo) => {
         // eslint-disable-next-line eqeqeq
-        if (todo.id != action.payload?.index) {
+        if (todo.id != action.payload.index) {
           return todo;
         }
 
         return {
-          ...todo, name: action.payload?.newName,
+          ...todo, name: action.payload.newName,
         };
       });
 

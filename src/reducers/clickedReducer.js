@@ -3,7 +3,7 @@ const clickedReducer = (state = [], action) => {
     case 'CLICKED_ADD':
       for (let i = 0; i < state.length; i += 1) {
         // eslint-disable-next-line eqeqeq
-        if (state[i] == action.payload?.index) {
+        if (state[i] == action.payload) {
           return state;
         }
       }
@@ -12,8 +12,10 @@ const clickedReducer = (state = [], action) => {
     case 'CLICKED_REMOVE':
       for (let i = 0; i < state.length; i += 1) {
         // eslint-disable-next-line eqeqeq
-        if (state[i] == action.payload?.index) {
-          return state.splice(i, 1);
+        if (state[i] == action.payload) {
+          const arr = [...state];
+          arr.splice(i, 1);
+          return arr;
         }
       }
       return state;

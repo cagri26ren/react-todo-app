@@ -34,9 +34,7 @@ const MainTableRow = ({
   };
 
   const handleNameChange = (event) => {
-    // eslint-disable-next-line no-console
-    console.log(event.value);
-    dispatch(editTODO(dataIndex, event.value));
+    dispatch(editTODO(dataIndex, event.target.value));
   };
 
   return (
