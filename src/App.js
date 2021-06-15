@@ -1,5 +1,5 @@
 import './style/App.css';
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import MainTable from './components/MainTable';
 import Header from './components/Header';
 import FooterMenu from './components/FooterMenu';

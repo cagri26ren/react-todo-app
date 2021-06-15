@@ -2,11 +2,11 @@ import '../style/MainTable.css';
 import '../style/App.css';
 import '../style/Header.css';
 import { useMemo, React } from 'react';
-import { useSelector } from 'react-redux';
 import MainTableRow from './MainTableRow';
+import { getTODOList } from '../selectors';
 
 const MainTable = () => {
-  const todoData = useSelector((state) => state.todo);
+  const todoData = getTODOList();
   const mainTableSize = useMemo(() => 180 + 40 * todoData?.length, [todoData?.length]);
 
   return (

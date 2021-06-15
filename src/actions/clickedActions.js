@@ -1,9 +1,11 @@
 // eslint-disable-next-line import/prefer-default-export
-export const clickedAdd = () => ({
+export const clickedAdd = (index) => ({
   type: 'CLICKED_ADD',
+  payload: index,
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const deleteTODO = () => ({
+export const clickedRemove = (index) => ({
   type: 'CLICKED_REMOVE',
+  payload: index,
 });

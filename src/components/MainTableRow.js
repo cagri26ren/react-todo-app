@@ -3,31 +3,40 @@
 import { useState, React } from 'react';
 import '../style/MainTableRow.css';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { clickedAdd, clickedRemove } from '../actions/clickedActions';
+import { checkTODO, deleteTODO, editTODO } from '../actions/todoActions';
 
 const MainTableRow = ({
   name,
   checked,
   dataIndex,
-  onDeleteClick,
-  onCheckChange,
-  onEditChange,
-  handleRowClicked,
-  handleExitEditMode,
 }) => {
   const [clicked, setClicked] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     setClicked(true);
-    handleRowClicked(dataIndex);
+    dispatch(clickedAdd(dataIndex));
   };
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = () => {
     if (clicked) {
       setClicked(false);
-      handleExitEditMode(dataIndex);
+      dispatch(clickedRemove(dataIndex));
     } else {
-      onDeleteClick(event);
+      dispatch(deleteTODO(dataIndex));
     }
+  };
+
+  const handleCheckChange = () => {
+    dispatch(checkTODO(dataIndex));
+  };
+
+  const handleNameChange = (event) => {
+    // eslint-disable-next-line no-console
+    console.log(event.value);
+    dispatch(editTODO(dataIndex, event.value));
   };
 
   return (
@@ -40,7 +49,7 @@ const MainTableRow = ({
           data-index={dataIndex}
           type="text"
           value={name}
-          onChange={onEditChange}
+          onChange={handleNameChange}
         />
       </div>
       <div className="rowCheckbox">
@@ -48,7 +57,7 @@ const MainTableRow = ({
           data-index={dataIndex}
           type="checkbox"
           checked={checked}
-          onChange={onCheckChange}
+          onChange={handleCheckChange}
         />
       </div>
       <div className="rowButton">
@@ -62,11 +71,6 @@ MainTableRow.propTypes = {
   name: PropTypes.string,
   checked: PropTypes.bool,
   dataIndex: PropTypes.number.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
-  onCheckChange: PropTypes.func.isRequired,
-  onEditChange: PropTypes.func.isRequired,
-  handleExitEditMode: PropTypes.func.isRequired,
-  handleRowClicked: PropTypes.func.isRequired,
 };
 
 MainTableRow.defaultProps = {
