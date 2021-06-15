@@ -2,9 +2,7 @@ import { combineReducers } from 'redux';
 import todoReducer from './todoReducer';
 import clickedReducer from './clickedReducer';
 
-const reducers = {
-  todoReducer,
-  clickedReducer,
-};
-
-export default combineReducers(reducers);
+export default combineReducers({
+  todo: todoReducer,
+  clicked: clickedReducer,
+});
