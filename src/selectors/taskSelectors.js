@@ -8,6 +8,5 @@ export const getReversedTaskList = createSelector([getTaskList], (task) => {
   for (let i = task.length - 1; i >= 0; i -= 1) {
     arr.push(task[i]);
   }
-  console.log(arr);
   return arr;
 });

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const fetchTasks = () => axios.get('https://c-eren.jotform.dev/intern-api/v1/tasks');
 
-const addTask = (name) => axios.get(`https://c-eren.jotform.dev/intern-api/v1/task/${name}`);
+const addTask = (name) => axios.post(`https://c-eren.jotform.dev/intern-api/v1/task/${name.name}`);
 
 const editTaskName = ({ id, data }) => axios.get(`https://c-eren.jotform.dev/intern-api/v1/task/name/${id}`, data);
 

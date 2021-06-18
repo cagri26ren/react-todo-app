@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/prefer-default-export
 export const addTask = (name) => ({
-  type: 'TASK_ADD',
+  type: 'TASK_ADD_ASYNC',
   payload: name,
 });
 
