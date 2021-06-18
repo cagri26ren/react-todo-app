@@ -1,8 +1,10 @@
-import { useState, useEffect, React } from 'react';
+import {
+  useState, useEffect, React, useCallback,
+} from 'react';
 import '../style/FooterMenu.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClickedArr } from '../selectors';
-import { addTODO } from '../actions/todoActions';
+import { addTask } from '../actions/taskActions';
 
 const FooterMenu = () => {
   const [text, setText] = useState('');
@@ -11,10 +13,10 @@ const FooterMenu = () => {
 
   let textInput = null;
 
-  const handleSubmit = () => {
-    dispatch(addTODO(text));
+  const handleSubmit = useCallback(() => {
+    dispatch(addTask(text));
     setText('');
-  };
+  }, [dispatch, text]);
 
   useEffect(() => {
     if (clickedArr?.length === 0) {
@@ -22,7 +24,7 @@ const FooterMenu = () => {
     }
     const onKeyDown = (e) => {
       if (e.keyCode === 13) {
-        dispatch(addTODO(text));
+        dispatch(addTask(text));
         setText('');
       }
     };
@@ -46,5 +48,4 @@ const FooterMenu = () => {
     </div>
   );
 };
-
 export default FooterMenu;

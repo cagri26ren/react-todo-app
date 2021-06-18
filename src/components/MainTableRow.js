@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState, React } from 'react';
+import { useState, React, useCallback } from 'react';
 import '../style/MainTableRow.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { clickedAdd, clickedRemove } from '../actions/clickedActions';
-import { checkTODO, deleteTODO, editTODO } from '../actions/todoActions';
+import { checkTask, deleteTask, editTask } from '../actions/taskActions';
 
 const MainTableRow = ({
   name,
@@ -15,27 +15,27 @@ const MainTableRow = ({
   const [clicked, setClicked] = useState(false);
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setClicked(true);
     dispatch(clickedAdd(dataIndex));
-  };
+  }, [dataIndex, dispatch]);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     if (clicked) {
       setClicked(false);
       dispatch(clickedRemove(dataIndex));
     } else {
-      dispatch(deleteTODO(dataIndex));
+      dispatch(deleteTask(dataIndex));
     }
-  };
+  }, [clicked, dataIndex, dispatch]);
 
-  const handleCheckChange = () => {
-    dispatch(checkTODO(dataIndex));
-  };
+  const handleCheckChange = useCallback(() => {
+    dispatch(checkTask(dataIndex));
+  }, [dataIndex, dispatch]);
 
-  const handleNameChange = (event) => {
-    dispatch(editTODO(dataIndex, event.target.value));
-  };
+  const handleNameChange = useCallback((event) => {
+    dispatch(editTask(dataIndex, event.target.value));
+  }, [dataIndex, dispatch]);
 
   return (
     <div className="mainTableRow">

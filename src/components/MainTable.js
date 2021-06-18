@@ -3,12 +3,12 @@ import '../style/App.css';
 import '../style/Header.css';
 import { useMemo, React } from 'react';
 import { useSelector } from 'react-redux';
-import { getTODOList } from '../selectors';
+import { getReversedTaskList } from '../selectors';
 import MainTableRow from './MainTableRow';
 
 const MainTable = () => {
-  const todoData = useSelector(getTODOList);
-  const mainTableSize = useMemo(() => 180 + 40 * todoData?.length, [todoData?.length]);
+  const taskData = useSelector(getReversedTaskList);
+  const mainTableSize = useMemo(() => 180 + 40 * taskData?.length, [taskData?.length]);
 
   return (
     <div className="mainTable" style={{ height: `${mainTableSize}px` }}>
@@ -26,7 +26,7 @@ const MainTable = () => {
         </div>
         <div className="divider" />
       </div>
-      {todoData.map((element) => (
+      {taskData.map((element) => (
         <MainTableRow
           key={element?.id}
           name={element?.name}

@@ -1,22 +1,22 @@
 // eslint-disable-next-line import/prefer-default-export
-export const addTODO = (name) => ({
-  type: 'TODO_ADD',
+export const addTask = (name) => ({
+  type: 'TASK_ADD',
   payload: name,
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const deleteTODO = (index) => ({
-  type: 'TODO_DELETE',
+export const deleteTask = (index) => ({
+  type: 'TASK_DELETE',
   payload: index,
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const checkTODO = (index) => ({
-  type: 'TODO_CHECK',
+export const checkTask = (index) => ({
+  type: 'TASK_CHECK',
   payload: index,
 });
 
-export const editTODO = (index, newName) => ({
-  type: 'TODO_EDIT',
+export const editTask = (index, newName) => ({
+  type: 'TASK_EDIT',
   payload: { index, newName },
 });

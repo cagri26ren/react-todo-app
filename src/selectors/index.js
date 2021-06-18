@@ -1,2 +1,2 @@
-export * from './todoSelectors';
+export * from './taskSelectors';
 export * from './clickedSelectors';

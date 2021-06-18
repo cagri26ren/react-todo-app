@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import todoReducer from './todoReducer';
+import taskReducer from './taskReducer';
 import clickedReducer from './clickedReducer';
 
 export default combineReducers({
-  todo: todoReducer,
+  task: taskReducer,
   clicked: clickedReducer,
 });

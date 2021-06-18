@@ -6,11 +6,11 @@ import FooterMenu from './components/FooterMenu';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <MainTable />
       <FooterMenu />
-    </div>
+    </>
   );
 }
 
