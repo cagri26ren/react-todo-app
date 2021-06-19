@@ -4,7 +4,7 @@ const fetchTasks = () => axios.get('https://c-eren.jotform.dev/intern-api/v1/tas
 
 const addTask = (data) => axios({
   method: 'post',
-  url: 'https://c-eren.jotform.dev/intern-api/v1/tasks/',
+  url: 'https://c-eren.jotform.dev/intern-api/v1/tasks',
   data: {
     name: data.name,
   },

@@ -45,7 +45,7 @@ const taskReducer = (state = [], action) => {
     case 'TASK_DELETE':
       for (let i = 0; i < state.length; i += 1) {
         // eslint-disable-next-line eqeqeq
-        if (state[i].id == action.payload) {
+        if (state[i].id == action.payload.index) {
           const arr = [...state];
           arr.splice(i, 1);
           return arr;
