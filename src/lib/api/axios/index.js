@@ -2,13 +2,19 @@ import axios from 'axios';
 
 const fetchTasks = () => axios.get('https://c-eren.jotform.dev/intern-api/v1/tasks');
 
-const addTask = (name) => axios.post(`https://c-eren.jotform.dev/intern-api/v1/task/${name.name}`);
+const addTask = (data) => axios.post(`https://c-eren.jotform.dev/intern-api/v1/task/${data.name}`);
 
-const editTaskName = ({ id, data }) => axios.get(`https://c-eren.jotform.dev/intern-api/v1/task/name/${id}`, data);
+const editTaskName = (data) => axios({
+  method: 'put',
+  url: `https://c-eren.jotform.dev/intern-api/v1/task/name/${data.id}`,
+  data: {
+    name: data.name,
+  },
+});
 
-const editTaskCheck = (id) => axios.get(`https://c-eren.jotform.dev/intern-api/v1/task/check/${id}`);
+const editTaskCheck = (data) => axios.put(`https://c-eren.jotform.dev/intern-api/v1/task/check/${data.id}`);
 
-const deleteTask = (id) => axios.get(`https://c-eren.jotform.dev/intern-api/v1/task/${id}`);
+const deleteTask = (data) => axios.delete(`https://c-eren.jotform.dev/intern-api/v1/task/${data.id}`);
 
 const api = {
   fetchTasks,

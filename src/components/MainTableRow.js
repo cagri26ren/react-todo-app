@@ -22,12 +22,17 @@ const MainTableRow = ({
 
   const handleButtonClick = useCallback(() => {
     if (clicked) {
+      if (name.length === 0) {
+        // eslint-disable-next-line no-alert
+        alert('Cannot add empty named task');
+        return;
+      }
       setClicked(false);
       dispatch(clickedRemove(dataIndex));
     } else {
       dispatch(deleteTask(dataIndex));
     }
-  }, [clicked, dataIndex, dispatch]);
+  }, [clicked, dataIndex, dispatch, name]);
 
   const handleCheckChange = useCallback(() => {
     dispatch(checkTask(dataIndex));
