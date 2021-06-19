@@ -19,8 +19,8 @@ const taskReducer = (state = [], action) => {
         return [...state,
           {
             // eslint-disable-next-line eqeqeq
-            id: (state.length != 0) ? state[state.length - 1].id + 1 : 0,
-            name: action.payload,
+            id: action.payload.index,
+            name: action.payload.newName,
             checked: false,
           },
         ];

@@ -1,8 +1,9 @@
 .footerMenu{
-    margin-left: 40%;
-    margin-top: 125px;
+  margin-left: 40%;
+  margin-top: 125px;
 }
 
-.textInput{
-    margin-right: 10px;
+#textInput{
+  width: '250px';
+  margin-right: '30px';
 }

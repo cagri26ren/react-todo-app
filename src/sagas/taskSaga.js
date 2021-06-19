@@ -33,7 +33,10 @@ function* addTask(action) {
   if (getResponseCode(response) === 200) {
     yield put({
       type: 'TASK_ADD',
-      payload: name,
+      payload: {
+        index: parseInt(responseContent, 10),
+        newName: name,
+      },
     });
   } else {
     alert(responseContent.message);
@@ -65,6 +68,7 @@ function* editTask(action) {
 
 function* checkTask(action) {
   const id = action.payload;
+  console.log(id);
 
   const response = yield call(api.editTaskCheck, { id });
   const responseContent = getData(response);

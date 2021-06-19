@@ -1,23 +1,26 @@
 .mainTableRow{
     background-color: white;
     border-radius: 20px;
-    height: 40px;
+    height: 50px;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 85%;
+    padding-top: 5px;
 }
 
 .nameTextDisplayInline{
     display: inline;
-    margin-left:130px; 
+    margin-left:100px; 
     position: absolute;
+    margin-top: 2px;
 }
 
 .nameTextDisplayNone{
     display: none;
     margin-left:130px; 
     position:absolute;
+    padding-top: 8px;
 }
 
 .rowButton{
@@ -30,4 +33,5 @@
     display: inline;
     margin-left: 420px; 
     position: absolute;
+    padding-top: 8px;
 }

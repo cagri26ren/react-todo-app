@@ -9,7 +9,7 @@ import { getTasks } from '../actions/taskActions';
 
 const MainTable = () => {
   const taskData = useSelector(getTaskList);
-  const mainTableSize = useMemo(() => 180 + 40 * taskData?.length, [taskData?.length]);
+  const mainTableSize = useMemo(() => 180 + 51 * taskData?.length, [taskData?.length]);
   const dispatch = useDispatch();
 
   useEffect(() => {

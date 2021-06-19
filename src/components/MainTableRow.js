@@ -4,6 +4,7 @@ import { useState, React, useCallback } from 'react';
 import '../style/MainTableRow.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 import { clickedAdd, clickedRemove } from '../actions/clickedActions';
 import { checkTask, deleteTask, editTask } from '../actions/taskActions';
 
@@ -50,8 +51,10 @@ const MainTableRow = ({
       <div className={(clicked) ? 'nameTextDisplayInline' : 'nameTextDisplayNone'} onClick={() => handleClick()}>
         <input
           data-index={dataIndex}
+          className="form-control"
           type="text"
           value={name}
+          placeholder="Enter Task Name"
           onChange={handleNameChange}
         />
       </div>
@@ -64,7 +67,13 @@ const MainTableRow = ({
         />
       </div>
       <div className="rowButton">
-        <button data-index={dataIndex} type="button" onClick={handleButtonClick}>{(clicked) ? 'Exit Edit Mode' : 'Delete'}</button>
+        <Button
+          data-index={dataIndex}
+          variant="outline-danger"
+          onClick={handleButtonClick}
+        >
+          {(clicked) ? 'Exit Edit Mode' : 'Delete'}
+        </Button>
       </div>
     </div>
   );

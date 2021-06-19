@@ -3,6 +3,7 @@ import {
 } from 'react';
 import '../style/FooterMenu.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 import { getClickedArr } from '../selectors';
 import { addTask } from '../actions/taskActions';
 
@@ -40,10 +41,18 @@ const FooterMenu = () => {
     <div className="footerMenu">
       <span>
         <label htmlFor="textInput">
-          Task Name:
-          <input className="textInput" name="textInput" type="text" value={text} onChange={(t) => setText(t.target.value)} ref={(t) => { textInput = t; }} />
+          <input
+            className="form-control"
+            style={{ width: '250px', marginRight: '30px' }}
+            name="textInput"
+            type="text"
+            value={text}
+            placeholder="Enter Task Name"
+            onChange={(t) => setText(t.target.value)}
+            ref={(t) => { textInput = t; }}
+          />
         </label>
-        <button onClick={handleSubmit} type="button">Create New Task</button>
+        <Button onClick={handleSubmit} type="button" variant="outline-primary">Create New Task</Button>
       </span>
     </div>
   );
