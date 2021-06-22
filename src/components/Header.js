@@ -4,7 +4,7 @@ import React from 'react';
 function Header() {
   return (
     <>
-      <h1 className="headerText">task List</h1>
+      <h1 className="headerText">Task List</h1>
       <div className="divider" />
     </>
   );

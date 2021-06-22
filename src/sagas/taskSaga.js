@@ -68,7 +68,6 @@ function* editTask(action) {
 
 function* checkTask(action) {
   const id = action.payload;
-  console.log(id);
 
   const response = yield call(api.editTaskCheck, { id });
   const responseContent = getData(response);
